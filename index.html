@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7fb">
+    <meta name="description" content="A simple, polished chat app demo that keeps your conversations in your browser.">
+    <title>Chat app</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/app.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell" aria-label="Chat application">
+      <aside class="contacts-panel" aria-label="Contacts">
+        <header class="sidebar-header">
+          <a class="brand" href="#" aria-label="Chat app home">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M5 18.5 3.8 21l4.3-1.6c1.2.5 2.5.8 3.9.8 5.2 0 9.5-3.8 9.5-8.5S17.2 3.2 12 3.2 2.5 7 2.5 11.7c0 2.7 1 5 2.5 6.8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                <path d="M8 12h.01M12 12h.01M16 12h.01" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span>chat<span class="brand-light">app</span></span>
+          </a>
+          <span class="demo-label">PERSONAL SPACE</span>
+        </header>
+
+        <div class="contacts-heading">
+          <div>
+            <h1>Messages</h1>
+            <p class="section-caption">Your conversations</p>
+          </div>
+          <span class="conversation-count" id="conversation-count" aria-label="Number of contacts"></span>
+        </div>
+
+        <div class="search-wrap">
+          <label class="sr-only" for="contact-search">Search contacts</label>
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="10.8" cy="10.8" r="6.8" stroke="currentColor" stroke-width="1.8"/>
+            <path d="m16 16 4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          <input id="contact-search" type="search" placeholder="Search contacts" autocomplete="off">
+          <kbd class="search-shortcut" aria-hidden="true">⌘ K</kbd>
+        </div>
+
+        <div class="list-label">ALL CHATS</div>
+        <ul class="contact-list" id="contact-list" aria-label="Conversation list"></ul>
+        <p class="list-empty" id="search-empty" hidden>No contacts match your search.</p>
+        <footer class="sidebar-footer">
+          <span class="footer-dot" aria-hidden="true"></span>
+          <span id="storage-status" aria-live="polite">Saved on this device</span>
+        </footer>
+      </aside>
+
+      <section class="conversation-panel" aria-label="Conversation">
+        <div class="empty-state" id="empty-state">
+          <div class="empty-illustration" aria-hidden="true">
+            <span class="illustration-bubble bubble-one"></span>
+            <span class="illustration-bubble bubble-two"></span>
+            <span class="illustration-sparkle">✦</span>
+          </div>
+          <h2>Your conversations, all in one place</h2>
+          <p>Choose someone from your chats to pick up where you left off.</p>
+          <button class="primary-button mobile-contacts-button" id="browse-contacts" type="button">Browse conversations</button>
+        </div>
+
+        <div class="chat-view" id="chat-view" hidden>
+          <header class="chat-header">
+            <button class="back-button" id="back-to-contacts" type="button" aria-label="Back to contacts">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="m15 18-6-6 6-6M9 12h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Chats</span>
+            </button>
+            <div class="chat-person" id="chat-person"></div>
+            <button class="icon-button clear-button" id="clear-chat" type="button" aria-label="Clear conversation" title="Clear conversation">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4 7h16M9 7V4h6v3m3 0-.8 13H6.8L6 7m4 4v5m4-5v5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </header>
+
+          <div class="messages" id="messages" role="log" aria-live="polite" aria-relevant="additions text" aria-label="Messages"></div>
+          <p class="chat-empty" id="chat-empty" hidden>No messages here yet. Send a note to start the conversation.</p>
+
+          <form class="composer" id="message-form">
+            <label class="sr-only" for="message-input">Write a message</label>
+            <textarea id="message-input" rows="1" maxlength="4000" placeholder="Write a message..." aria-describedby="composer-hint"></textarea>
+            <div class="composer-footer">
+              <span id="composer-hint">Press <kbd>Enter</kbd> to send · <kbd>Shift + Enter</kbd> for a new line</span>
+              <button class="send-button" type="submit" aria-label="Send message" title="Send message">
+                <span>Send</span>
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="m21 3-7.2 18-3.9-7.9L2 9.2 21 3Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M10 13 21 3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                </svg>
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
